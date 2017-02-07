@@ -1,0 +1,109 @@
+<#assign page=JspTaglibs["/WEB-INF/dh.tld"] />
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function check() {
+			if (confirm("您确定要删除！")) {   //删除弹框
+				alter("删除");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+
+function check1() {
+			if (confirm("您确定要进行修改？")) {   //删除弹框
+				alter("修改上");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 3px;
+	margin-top: 0px;
+	margin-right: 3px;
+	margin-bottom: 0px;
+}
+.STYLE1 {
+	color: #e1e2e3;
+	font-size: 12px;
+}
+.STYLE6 {color: #000000; font-size: 12; }
+.STYLE10 {color: #000000; font-size: 12px; }
+.STYLE19 {
+	color: #344b50;
+	font-size: 12px;
+}
+.STYLE21 {
+	font-size: 12px;
+	color: #3b6375;
+}
+.STYLE22 {
+	font-size: 12px;
+	color: #295568;
+}
+-->
+</style>
+</head>
+<body>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="6%" height="19" valign="bottom"><div align="center"><img src="images/tb.gif" width="14" height="14" /></div></td>
+                <td width="94%" valign="bottom"><span class="STYLE1">师资队伍</span></td>
+              </tr>
+            </table></td>
+            <td><div align="right"><span class="STYLE1">
+              <input type="checkbox" name="checkbox11" id="checkbox11" />
+              全选      &nbsp;&nbsp;<img src="images/add.gif" width="10" height="10" /> 添加   &nbsp; <img src="images/del.gif" width="10" height="10" /> 删除    &nbsp;&nbsp;<img src="images/edit.gif" width="10" height="10" /> 编辑   &nbsp;</span><span class="STYLE1"> &nbsp;</span></div></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+      <tr>
+        <td width="4%" height="20" bgcolor="d3eaef" class="STYLE10"><div align="center">
+          <input type="checkbox" name="checkbox" id="checkbox" />
+        </div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">姓名</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">团队</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">电话</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">传真</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">邮箱</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">职位</span></div></td>
+        <td  height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">基本操作</span></div></td>
+      </tr>
+      <#list pagination.list as page>
+      <tr>
+        <td height="20" bgcolor="#FFFFFF"><div align="center">
+          <input type="checkbox" name="checkbox2" id="checkbox2" />
+        </div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><span class="STYLE19">${page.teaName!}</span></div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">${page.tgName!}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">${page.teaPhone!}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">${page.teaFax!}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">${page.teaEmail!}</div></td>
+        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center">${page.teaposition!}</div></td>
+        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21"> <a href="teacherAction!delete.action?id=${page.id}">删除</a> | 查看</div></td>
+      </tr>
+      </#list>
+	      <form id="queryForm" method="post">
+	          	<@page.page url="teacherAction!teacherListto.action" name="pagination"></@page.page>
+      	  </form>
+</table>
+</body>
+</html>

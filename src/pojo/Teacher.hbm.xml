@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Teacher" table="tmteacher">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+         <property name="teaName" type="java.lang.String">
+            <column name="teaname" length="50" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="50" />
+        </property>
+        <property name="teaFax" type="java.lang.String">
+            <column name="teafax" length="50" />
+        </property>
+        <property name="teaPhone" type="java.lang.String">
+            <column name="teaphone" length="50" />
+        </property>
+        <property name="teaPhoto" type="java.lang.String">
+            <column name="teaphoto" length="255" />
+        </property>
+        <property name="teaDirection" type="java.lang.String">
+            <column name="teadirection" length="255" />
+        </property>
+        <property name="teaEmail" type="java.lang.String">
+            <column name="teaemail" length="50" />
+        </property>
+         <property name="serviceExist" type="java.lang.Integer">
+            <column name="serviceexist" length="11" />
+        </property>
+        <property name="teaTeam_id" type="java.lang.Integer">
+            <column name="teateam_id" length="50" />
+        </property>
+         <property name="teaposition" type="java.lang.String">
+            <column name="teaposition" length="500" />
+        </property>
+         <property name="teaEducationalBackground" type="java.lang.String">
+            <column name="teaeducationalbackground" length="100000" />
+        </property>
+         <property name="teaworkexperience" type="java.lang.String">
+            <column name="teaworkexperience" length="100000" />
+        </property>
+         <property name="teaAwardOrActive" type="java.lang.String">
+            <column name="teaawardoractive" length="100000" />
+        </property>
+         <property name="teaMajorThesis" type="java.lang.String">
+            <column name="teamajorthesis" length="100000" />
+        </property>
+        <property name="teaMajorThesisTitle" type="java.lang.String">
+            <column name="teamajorthesistitle" length="255" />
+        </property>
+        <property name="dengji" type="java.lang.Integer">
+            <column name="dengji" length="11" />
+        </property>
+    </class>
+</hibernate-mapping>

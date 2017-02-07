@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>青岛农业大学生殖科学研究院</title>
+<meta name="description"
+	content="青岛农业大学生殖科学研究院网站由2015年7月上线，作者是青岛农业大学的两名在校生张伟超和葛杨，该网站主要用于生物学信息的交流和传播">
+<meta name="keywords"
+	content="青岛农业大学，生殖科学研究院，动科学院，张伟超，葛杨，青农大，青岛农业大学主青农大主">
+<meta name="author" content="2013级信工1301张伟超，2013级计本1302葛杨，张伟超，葛杨">
+<link href="front/template/lib/css/cg.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="front/template/css/style.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="front/template/lib/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/template/lib/js/cg.min.js"></script>
+<script type="text/javascript">
+				$(function() {
+					$(".slist").cgCarousel({
+						vertical : true,
+						speed : 60,
+						type : 'ceaseless'
+					});
+				})
+			</script>
+
+<!--[if lt IE 7 ]>
+<script type="text/javascript" src="template/js/cgFixPng.js"></script>
+<script type="text/javascript">
+   cgFixPng.fix('div, img, a, .png,span');
+</script>
+<![endif]-->
+</head>
+
+<body class="home">
+
+	<div class="header clearfix">
+		<div class="logo fl">
+
+			<a href="frontAction!mainto.action" title="青岛农业大学生命科学研究院"> <img
+				src="front/net/images/banner.png" alt="青岛农业大学生命科学研究院" /> </a>
+		</div>
+		<div class="topsearch fr">
+			<ul>
+				<li><a href="http://d.weibo.com/" title="新浪微博" target="_blank"><img
+						src="front/template/images/xinlang.gif" alt="新浪微博" /> </a></li>
+				<li><a href="http://www.hao123.com/mail" title="邮箱"
+					target="_blank"><img src="front/template/images/youxiang.gif"
+						alt="邮箱" /> </a></li>
+				<!-- <li><a href="#" title="联系方式" target="_blank"><img src="front/template/images/xianxifangshi.gif" alt="联系方式" /></a></li> -->
+				<li><a href="#" title="English" target="_blank"><img
+						src="front/template/images/english_cn.gif" alt="English" /> </a></li>
+			</ul>
+
+			<form id="form1" name="form1" action="#" method="get">
+				<input type="hidden" name="postflag" id="postflag" value="1" /> <input
+					type="hidden" name="area" id="area" value="2" /> <input
+					type="text" name="kw_qbzc" id="kw_qbzc" class="searchInput"
+					value="站内搜索" onFocus="if(this.value=='站内搜索'){this.value=''}"
+					onblur="if(this.value==''){this.value='站内搜索'}" /> <input
+					type="submit" value="" class="searchBtn" />
+			</form>
+		</div>
+		<div class="mainNav fr">
+
+			<ul class="cg-nav" id="navigation">
+				<li class="li1"><span class="nav-selected"><a href="#"
+						class="a1">研究院简介</a> </span>
+					<ul class="second-nav">
+						<#list profileList as profile>
+						<li><span><a
+								href="frontAction!getContent.action?id=${profile.id!}"
+								title="${profile.profileName!}">${profile.profileName!}</a> </span>
+						</li> </#list>
+					</ul>
+				</li>
+				<li class="li1"><span class="nav-selected"><a
+						href="frontAction!teacher.action" class="a1">师资队伍</a> </span>
+
+					<ul class="second-nav">
+						<#list groupList as grouplist>
+						<li><span><a
+								href="frontAction!teacher.action?id=${grouplist.id!}"
+								title="${grouplist.tgName!}">${grouplist.tgName!}</a> </span>
+						</li> </#list>
+					</ul>
+				</li>
+				<li class="li1"><span><a
+						href="frontAction!navThreeto.action" class="a1">科学研究</a> </span>
+
+					<ul class="second-nav">
+						<#list navthreeList as nav>
+						<li><span><a
+								href="frontAction!getnavContent.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span>
+						</li> </#list>
+					</ul>
+				</li>
+				<li class="li1"><span><a
+						href="frontAction!navFourto.action" class="a1">通知公告</a> </span>
+
+					<ul class="second-nav">
+						<#list navfourList as nav>
+						<li><span><a
+								href="frontAction!getnavContentFour.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span>
+						</li> </#list>
+					</ul>
+				</li>
+
+				<li class="li1"><span><a
+						href="frontAction!studyto.action" class="a1">学习天地</a> </span>
+					<ul class="second-nav">
+						<#list studyoneList as stuone>
+						<li><span><a
+								href="frontAction!studytoto.action?id=${stuone.id}"
+								title="${stuone.studyOneName!}">${stuone.studyOneName!}</a> </span>
+						</li> </#list>
+					</ul>
+				</li>
+			</ul>
+			<script type="text/javascript">
+				try {
+					$(function() {
+						$(".cg-nav").cgMenu({
+							parentClass : "parent-nav"
+						});
+					});
+				} catch (e) {
+				}
+			</script>
+			<div class="nav-t-l-ico"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="front/template/js/cg.autoNav.js"></script>
+	<script type='text/javascript'>
+		$(".mainNav ul").autoNav();
+	</script>
+	<center>
+		<iframe src="frontAction!mainto.action" id="iframepage" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onLoad="iFrameHeight()"></iframe>
+	</center>
+	<script type="text/javascript" language="javascript">   
+		function iFrameHeight() {   
+		var ifm= document.getElementById("iframepage");   
+		var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;   
+		if(ifm != null && subWeb != null) {
+		   ifm.height = subWeb.body.scrollHeight;
+		   ifm.width = subWeb.body.scrollWidth;
+		}   
+		}   
+	</script>
+	<div id="foot"></div>
+	<script type="text/javascript">   
+		$(document).ready(function(){
+			$("#foot").load("front/footer.html");
+			//在页面装载时，在ID为#labels的DOM元素里插入test.html的内容。
+		});
+	</script>
+</body>
+</html>

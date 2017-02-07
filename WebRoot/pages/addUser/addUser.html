@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var userName = $("#userName").val();
+			var personName = $("#personName").val();
+			var states = $("#states").val();
+			if(userName==""){
+				alert("用户名不能为空");
+				return false;	
+			}else if(personName==""){
+				alert("真实姓名不能为空");
+				return false;
+			}
+			else if(states==""){
+				alert("真实姓名不能为空");
+				return false;
+			}else{
+			   $.ajax({
+						url:"userAction!addUser.action",
+						data:{"userName":userName,"personName":personName,"states":states},
+						type:"post",
+						datatype:"json",
+						success:function(result){
+							/* alert(result); */
+						if(result=="1")	{
+							alert("该用户已存在！！");
+							return false;
+						}if(result=="2"){
+							
+							add.submit();
+						}
+					   }
+					})
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+		<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="userAction!getAllPg.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">添加用户</td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">用户名</td>
+          <td align="left"><input name="userName" type="text" id="userName"> <font color="red">*</font></td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">真实姓名</td>
+          <td align="left"><input name="personName" type="text" id="personName"> <font color="red">*</font></td>
+        </tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 等级：</td>
+		  <td align='left'>
+			 <select name="states" id="states" >  
+  				<option value ="1">超级管理员</option>  
+  				<option value ="2">普通管理员</option>  
+		    </select>
+		  </td>
+	  
+		</tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="button" id="but" name="but" value="添加">
+          	<input type="button" name="Submit2" value="重置" onClick="history.back(-1)"></td>
+        </tr>
+		</FORM>
+      </table> 
+	 </td>
+  </tr>
+</table>
+</body>
+</html>

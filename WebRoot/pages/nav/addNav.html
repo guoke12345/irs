@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+		<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="navAction!addNav.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">添加标题</td>
+        </tr>
+        
+        <tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 导航栏名字：</td>
+		  <td align='left'>
+			 <select name="navName" id="navName" >  
+  				<option value ="科学研究">科学研究</option>  
+  				<option value ="通知公告">通知公告</option>  
+		    </select>
+		  </td>
+	  
+		</tr>
+		<tr align='center' bgcolor='#FFFFFF'>
+		  <td align='right' bgcolor="#FFFFFF"> 一级标题：</td>
+		  <td align='left'><input name="oneName" type="text" id="oneName"> <font color="red">*</font></td>
+		</tr>
+		
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="Submit" name="Submit" value="添加">
+          	<input type="button" name="Submit2" value="重置" onClick="history.back(-1)"></td>
+        </tr>
+		</FORM>
+      </table> 
+	 </td>
+  </tr>
+</table>
+</body>
+</html>

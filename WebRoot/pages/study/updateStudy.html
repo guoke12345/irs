@@ -1,0 +1,99 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#upfile").click(function(){ 
+			if(confirm('您确定要替换文件？')){}else{
+				return false;
+			}
+		})
+	})
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var studyTwoName_id = $("#studyTwoName_id").val();
+			var studyTitle = $("#studyTitle").val();
+			var studyContent = $("#content_1").val();
+			var filePath = $("#upfile").val();
+			if(studyTwoName_id==""){
+				alert("一级标题不能为空");
+				return false;	
+			}else if(studyContent==""){
+				alert("内容不能为空");
+				return false;
+			}else if(studyTitle==""){
+				alert("文章标题不能为空");
+				return false;
+			}else if(filePath != ""){
+				var extStart = filePath.lastIndexOf(".");
+               	var ext = "." + filePath.replace(/.+\./, "");
+               	 if (ext != ".RAR" && ext != ".rar" && ext != ".zip" && ext != ".ZIP" && ext != ".pdf"
+               	 && ext != ".PDF" && ext != ".xls" && ext != ".XLS" && ext != ".txt" && ext != ".doc"
+               	 && ext != ".DOC") {
+                    alert("文件格式不正确！");
+                    return false;
+                }else{
+               	 form.submit();
+                }
+			}else{
+			   form.submit();
+			}
+		})
+	})
+</script>
+
+	<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="form" method="post" action="studyAction!updateStudy.action" enctype="multipart/form-data">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">修改文章</td>
+        </tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 文章标题：</td>
+		  <td align='left'><input name="studyTitle" type="text" id="studyTitle" size="50" value="${study.studyTitle!}"></td>
+		</tr>
+        <tr align="center" bgcolor="#FFFFFF">
+          <td width="10%" align="right">简介内容：</td>
+          <td align="left"><textarea id="content_1" name="studyContent" cols="100" rows="8" style="width:550px;height:300px;">${study.studyContent!}</textarea></td>
+        </tr>
+        <tr align="center" bgcolor="#FFFFFF">
+          <td width="10%" align="right">上传文件：</td>
+          <td align="left">
+          	<input id="upfile" type="file" name="upfile"/>
+          	&nbsp&nbsp&nbsp&nbsp
+          	已上传文件：
+          	<#if (study.filePath)?exists >
+     			 <font color="red"> ${study.fileName!} </font>
+     		<#else>
+     			 <font color="red"> 无</font>
+  			</#if>
+          </td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="button" id="but" name="Submit" value="提交" onClick="check()">
+          	<input type="button" name="Submit2" value="返回" onClick="history.back(-1)"></td>
+        </tr>
+        <input  type="hidden" value="${study.studyOneName_id!}" name="studyOneName_id">
+        <input  type="hidden" value="${study.studyTwoName_id!}" name="studyTwoName_id">
+        <input  type="hidden" value="${study.id!}" name="id">
+		</FORM>
+      </table> 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

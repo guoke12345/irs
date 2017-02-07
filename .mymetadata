@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="qau_institute"
+  id="myeclipse.1431507971880"
+  context-root="/qau_institute"
+  j2ee-spec="5.0"
+  archive="qau_institute.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

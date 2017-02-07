@@ -1,0 +1,83 @@
+<#assign page=JspTaglibs["/WEB-INF/dh.tld"] />
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function check() {
+			if (confirm("您确定要删除！")) {   //删除弹框
+				alter("删除");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+function content(id){		//详细内容查看
+	window.location = "teacherAction!getContent.action?id="+id;
+}
+function check1() {
+			if (confirm("您确定要进行修改？")) {   //删除弹框
+				alter("修改上");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+	<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+	
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="10"  class="optiontitle">
+          	<span style="float:left"><a href="teacherAction!biaojiList.action">标记教师</a> <a href="teacherAction!teacherListto.action">全部教师</a></span>	   师资队伍
+          </td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td align='center'>序号</td>
+          <td align='center'>姓名</td>
+          <td align='center'>团队</td>
+          <td align='center'>电话</td>
+          <td align='center'>传真</td>
+          <td align='center'>邮箱</td>
+          <td align='center'>职位</td>
+          <td align='center'>基本操作</td>
+        </tr>
+         <#list pagination.list as page>
+	        <tr align='center' bgcolor='#FFFFFF'    onmouseover='this.style.background="#F2FDFF"' onmouseout=' this.style.background="#FFFFFF" '>
+			
+			  <td width="5%" onclick="content(${page.id!})">${page_index+1!}</td>
+			  <td align='center' onclick="content(${page.id!})">${page.teaName!}</td>
+	          <td align='center' onclick="content(${page.id!})">${page.tgName!}</td>
+	          <td align='center' onclick="content(${page.id!})">${page.teaPhone!}</td>
+	          <td align='center' onclick="content(${page.id!})">${page.teaFax!}</td>
+	          <td align='center' onclick="content(${page.id!})">${page.teaEmail!}</td>
+	          <td align='center' onclick="content(${page.id!})">${page.teaposition!}</td>
+	        
+	          <td align='center'>
+	          		<#if page.dengji = 1 >
+	          		<a href="#">已标记|</a>
+	          		<#else>
+	          		<a href="teacherAction!biaoji.action?id=${page.id!}">标记|</a>
+	          		</#if>
+	          <img src="images/edit.gif" align="absmiddle"><a href="teacherAction!toUpdate.action?id=${page.id!}" onclick="check1()">修改</a> | 
+	          <img src="images/drop.gif" align="absmiddle"><a href="teacherAction!delete.action?id=${page.id!}" onclick="check()">删除</a></td>
+	     </tr>
+	       
+		</#list>
+		
+          <form id="queryForm" method="post">
+          	<@page.page url="teacherAction!teacherListto.action" name="pagination"></@page.page>
+          </form>
+        </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

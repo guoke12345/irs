@@ -1,0 +1,59 @@
+<#assign page=JspTaglibs["/WEB-INF/dh.tld"] />
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function check() {
+			if (confirm("您确定要删除！")) {   //删除弹框
+				alter("删除");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+
+function check1() {
+			if (confirm("您确定要进行修改？")) {   //删除弹框
+				alter("修改上");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+	<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+	
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="6"  class="optiontitle">学习天地一级标题</td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td width="5%">序号</td>
+          <td width="%">一级标题</td>
+          <td width="%">操作</td>
+        </tr>
+         <#list pagination.list as stu>
+        <tr align='center' bgcolor='#FFFFFF' onmouseover='this.style.background="#F2FDFF"' onmouseout='this.style.background="#FFFFFF"'>
+		  <td width="5%">${stu_index+1!}</td>
+          <td align='center' ><a href="#">${stu.studyOneName!}</a></td>
+          <td align='center'> 
+          <img src="images/drop.gif" align="absmiddle"><a href="studyoneAction!deleteByid.action?id=${stu.id!}" onclick="check()">删除</a></td>
+        </tr>
+		</#list>
+          <form id="queryForm" method="post">
+          	<@page.page url="studyoneAction!studyOnePg.action" name="pagination"></@page.page>
+          </form>
+        </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

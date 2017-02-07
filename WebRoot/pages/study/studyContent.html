@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Content.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="./styles.css">
+<style>
+	#title {width:75%;height:100%;background-color:;border:1px #A1CEFB solid;margin-left:auto;margin-right:auto}
+	#top{width:950px;;background-color:;margin-left:10px;height:100%}
+	#top ul li{list-style:none;margin-left:-40px;margin-top:px}
+	#contice {width:98%;margin-left:20px;background-color:;margin-top:20px;height:100%}
+	#contice_tit {width:98%;background-color:;height:100%}
+	#contice_tit ul  {list-style:none}
+	#contice_tit ul li {margin-top:10px}
+	#contice_nie {width:98%;margin-left:0px;background-color:;margin-top:20px}
+</style>
+	
+</head>
+
+<body>
+	
+	<div id="title">
+		<div id="top">
+			<ul>	
+				<li>
+				
+					<b><a  onclick="javascript:history.back(-1);" style="cursor:pointer;color:blue">返回首页 </a>>>当前位置 >>${study.studyTitle!}</b>
+			
+				</li>
+			</ul>
+		</div>
+		<hr style="margin-top:-10px;height:10px;border:none;border-top:10px groove skyblue;border-top:10px red yellow;" />
+		<div id="contice"	>
+			<div id="contice_tit">
+				<ul>	
+					<li><center><B>${study.studyTitle!}</B></center></li>
+					<li><center><B>【时间：${study.studyTime!}】</B></center></li>
+					
+				</ul>
+			</div>
+			<div id="contice_nie">
+				${study.studyContent!}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

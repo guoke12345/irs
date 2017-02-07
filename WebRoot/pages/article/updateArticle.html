@@ -1,0 +1,83 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var content = $("#content_1").val();
+			var title = $("#title").val();
+			if(content==""){
+				alert("内容不能为空");
+				return false;
+			}else if(title==""){
+				alert("文章标题不能为空");
+				return false;
+			}else{
+			   form.submit();
+			}
+		})
+	})
+	function check() {
+			if (confirm("您确定要修改！")) {   //删除弹框
+				alter("修改");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+	<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="form" method="post" action="articleAction!updateArticle.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">添加文章</td>
+        </tr>
+        <tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 导航栏标题：</td>
+		  <td align='left'><input name="nav_navName" type="text" id="title" value="${article.nav_navName!}"  readonly="readonly"  size="50"></td>
+		</tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 一级标题：</td>
+		 
+		  <td align='left'>
+			 <select name="nav_oneName" id="nav_oneName" >  
+			  <option value ="${article.nav_oneName!}">${article.nav_oneName!}</option>  
+			  
+		    </select>
+		  </td>
+		</tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 文章标题：</td>
+		  <td align='left'><input name="title" type="text" id="title" value="${article.title!}" size="50"></td>
+		</tr>
+        <tr align="center" bgcolor="#FFFFFF">
+          <td width="10%" align="right">简介内容：</td>
+          <td align="left"><textarea id="content_1" name="content" cols="100" rows="8" style="width:550px;height:300px;">${article.content!}</textarea></td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="button" id="but" name="Submit" value="提交" onClick="check()">
+          	<input type="button" name="Submit2" value="返回" onClick="history.back(-1)"></td>
+        </tr>
+        <input type="hidden" name="id" value="${article.id!}">
+        <input type="hidden" name="dengji" value="${article.dengji!}">
+		</FORM>
+      </table>  
+    
+    </td>
+  </tr>
+</table>
+</body>
+</html>

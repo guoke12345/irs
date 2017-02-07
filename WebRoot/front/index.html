@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>青岛农业大学生殖科学研究院</title>
+<meta name="description" content="青岛农业大学生殖科学研究院网站由2015年7月上线，作者是青岛农业大学的两名在校生张伟超和葛杨，该网站主要用于生物学信息的交流和传播">
+<meta name="keywords" content="青岛农业大学，生殖科学研究院，动科学院，张伟超，葛杨，青农大，青岛农业大学主青农大主"> 
+<meta name="author" content="2013级信工1301张伟超，2013级计本1302葛杨，张伟超，葛杨"> 
+<link href="front/template/lib/css/cg.min.css" rel="stylesheet"		type="text/css" />
+<link href="front/template/css/style.css" rel="stylesheet"	type="text/css" />
+<script type="text/javascript"	src="front/template/lib/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/template/lib/js/cg.min.js"></script>
+			<script type="text/javascript">
+				$(function() {
+					$(".slist").cgCarousel({
+						vertical : true,
+						speed : 60,
+						type : 'ceaseless'
+					});
+				})
+</script>
+</head>
+<body class="home">
+			<div class="header clearfix">
+		<div class="logo fl">
+			<a  href="frontAction!index.action"
+				title="青岛农业大学生殖科学研究院"> <img src="front/net/images/banner.png"
+				alt="青岛农业大学生殖科学研究院" /> </a>
+		</div>
+		<div class="topsearch fr">
+			<ul>
+				<li><a href="http://d.weibo.com/" title="新浪微博" target="_blank"><img
+						src="front/template/images/xinlang.gif" alt="新浪微博" /> </a>
+				</li>
+				<li><a href="http://www.hao123.com/mail" title="邮箱"
+					target="_blank"><img src="front/template/images/youxiang.gif"
+						alt="邮箱" /> </a>
+				</li>
+				<!-- <li><a href="#" title="联系方式" target="_blank"><img src="front/template/images/xianxifangshi.gif" alt="联系方式" /></a></li> -->
+				<li><a href="#" title="English" target="_blank"><img
+						src="front/template/images/english_cn.gif" alt="English" /> </a>
+				</li>
+			</ul>
+			<form id="form1" name="form1" action="#" method="get">
+				<input type="hidden" name="postflag" id="postflag" value="1" /> <input
+					type="hidden" name="area" id="area" value="2" /> <input
+					type="text" name="kw_qbzc" id="kw_qbzc" class="searchInput"
+					value="站内搜索" onFocus="if(this.value=='站内搜索'){this.value=''}"
+					onblur="if(this.value==''){this.value='站内搜索'}" /> <input
+					type="submit" value="" class="searchBtn" />
+			</form>
+		</div>
+		<div class="mainNav fr">
+			<ul class="cg-nav" id="navigation">
+				<li class="li1"><span class="nav-selected"><a href="#"
+						class="a1">研究院简介</a> </span>
+					<ul class="second-nav">
+						<#list profileList as profile>
+						<li><span><a  
+								href="frontAction!getContent.action?id=${profile.id!}"
+								title="${profile.profileName!}">${profile.profileName!}</a> </span></li>
+						</#list>
+					</ul></li>
+				<li class="li1"><span class="nav-selected"><a  
+						href="frontAction!teacher.action" class="a1">师资队伍</a> </span>
+
+					<ul class="second-nav">
+						<#list groupList as grouplist>
+						<li><span><a  
+								href="frontAction!teacher.action?id=${grouplist.id!}"
+								title="${grouplist.tgName!}">${grouplist.tgName!}</a> </span></li> </#list>
+					</ul></li>
+				<li class="li1"><span><a  
+						href="frontAction!navThreeto.action" class="a1">科学研究</a> </span>
+
+					<ul class="second-nav">
+						<#list navTop as nav>
+						<#if nav.navName == "科学研究">
+						<li><span><a  
+								href="frontAction!getnavContent.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span></li> 
+						</#if>
+						</#list>
+					</ul></li>
+				<li class="li1"><span><a  
+						href="frontAction!navFourto.action" class="a1">通知公告</a> </span>
+
+					<ul class="second-nav">
+						<#list navTop as nav>
+						<#if nav.navName == "通知公告">
+						<li><span><a  
+								href="frontAction!getnavContentFour.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span></li> 
+						</#if>
+						</#list>
+					</ul></li>
+
+				<li class="li1"><span><a  
+						href="frontAction!studyto.action" class="a1">学习天地</a> </span>
+					<ul class="second-nav">
+						<#list studyoneList as stuone>
+						<li><span><a  
+								href="frontAction!studytoto.action?id=${stuone.id}"
+								title="${stuone.studyOneName!}">${stuone.studyOneName!}</a> </span></li>
+						</#list>
+					</ul></li>
+			</ul>
+			<script type="text/javascript">
+				try {
+					$(function() {
+						$(".cg-nav").cgMenu({
+							parentClass : "parent-nav"
+						});
+					});
+				} catch (e) {
+				}
+			</script>
+			<div class="nav-t-l-ico"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="front/template/js/cg.autoNav.js"></script>
+	<script type='text/javascript'>
+		$(".mainNav ul").autoNav();
+	</script>
+
+		<div class="banner clearfix">
+		<div class="pic-box box2">
+			<div class="big-pic">
+				<script type="text/javascript">
+					$(function() {
+						$(".banner .box2").cgPictureEffect({
+							picture : ".big-pic",
+							thumbPicture : ".small-pic",
+							effect : {
+								type : "fade",
+								speed : 1000
+							},
+							thumbEffect : {
+								style : "number",
+								type : null,
+								selectedClass : "small-hover"
+							},
+							delay : 5000
+						});
+					})
+				</script>
+
+				<ul class="cg-pic-news-list" id="artp">
+
+					<#list carouselList as carousel>
+					<li>
+						<div class="art-img">
+							<a href="frontAction!carouselContent.action?id=${carousel.id!}"
+								title="${carousel.carouselName!}" target="_blank"><img
+								src="${carousel.carouselPhoto!}"
+								style="width:100%;height:405px;" alt="${carousel.carouselName!}" />
+							</a>
+						</div></li> </#list>
+				</ul>
+			</div>
+			<div class="small-pic"></div>
+		</div>
+		<div class="news-box">
+			<div class="title">
+				<h3>新闻通知</h3>
+				<a   href="frontAction!getnavContentFour.action?nav_oneName=10" 
+					class="more">更多</a>
+			</div>
+			<div class="con">
+				<ul class="cg-news-list" id="arthd">
+					<#list newsList as article>
+					<#if article.dengji == 1>
+						<li><a class="" href="frontAction!navFourContent.action?id=${article.id!}"
+							  title="${article.title!}">
+							<#if article.title?length gt 15> <font color="blue">${article.title!?substring(0,15)}...</font>
+								<#else> <font color="blue">${article.title!}</font> 
+							</#if> 
+						</a> <span 	class="art-date"><font color="blue">${article.time!}</font>
+						</span>
+						</li> 
+					</#if>	
+					</#list>
+					<#list newsList as article>
+					<#if article.dengji == 0>
+						<li><a class=""	href="frontAction!navFourContent.action?id=${article.id!}"
+							  title="${article.title!}">
+						<#if article.title?length gt 15> ${article.title!?substring(0,15)}...
+								<#else> ${article.title!} 
+						</#if> </a> <span class="art-date">${article.time!}</span>
+						</li> 
+					</#if>
+					</#list>
+				</ul>
+			</div>
+		</div>
+		<div class="topbg"></div>
+	</div>
+		<div class="index-main clearfix">
+		<div class="academic indexbox w381 fl">
+			<div class="title">
+				<h3>学术讲座</h3>
+				<a href="frontAction!getnavContent.action?nav_oneName=11"
+					class="more">更多</a>
+			</div>
+
+			<div class="con">
+				<ul class="cg-news-list" id="arthd">
+					<#list lectureList as article>
+							<li><a class="highlight" style="" href="frontAction!navThreeContent.action?id=${article.id!}"   title="${article.title!}"> 
+									<#if article.title?length gt 13> 
+										${article.title!?substring(0,12)}...
+									<#else> 
+										${article.title!} 
+									</#if> 
+								</a> <span class="art-date">${article.time!}</span>
+							</li> 
+					</#list>
+				</ul>
+			</div>
+		</div>
+		<div class="essay indexbox w381 fl">
+			<div class="title">
+				<h3>发表论文</h3>
+				<!--  <a href="frontAction!thesisContent.action" class="more">更多</a> -->
+			</div>
+
+
+			<div class="con">
+				<div class="slist">
+					<ul class="cg-news-list" id="arth">
+						<#list thesisList as tealist>
+						<li><a 
+							href="frontAction!thesisContent.action?id=${tealist.id!}"
+							title="${tealist.title!}"  > <#if
+								tealist.title??> <#if tealist.title!?length gt 25>
+								${tealist.title!?substring(0,25)}... <#else> ${tealist.title!}
+								</#if> </#if> </a>
+						</li> </#list>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn-box indexbox fr">
+			<dl>
+				<dd>
+					<a href="http://www.qau.edu.cn/" target="black" title="青岛农业大学"><img
+						src="front/template/images/box_r_btn01.png" alt="青岛农业大学" />
+					</a>
+				</dd>
+				<dd>
+					<a href="http://pubmed.cn/" target="black" title="PubMed"><img
+						src="front/template/images/box_r_btn02.png" alt="PubMed" />
+					</a>
+				</dd>
+				<dd>
+					&nbsp&nbsp&nbsp <select
+						onchange="window.open(this.options[selectedIndex].value)">
+						<option value="#">&nbsp--===&nbsp友情链接&nbsp===--&nbsp</option>
+						<#list eduList as edu>
+						<option value="http://${edu.eduTwoName!}">${edu.eduOneName!}</option>
+
+						</#list>
+					</select>
+				</dd>
+			</dl>
+		</div>
+	</div>
+		
+
+	<div id="footer"></div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.get("front/footer.html",function(data){
+				$("#footer").html(data);
+			});
+		})
+	</script>	
+</body>
+</html>

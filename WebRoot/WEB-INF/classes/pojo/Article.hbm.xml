@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Article" table="article">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+         <property name="nav_oneName" type="java.lang.Integer">
+            <column name="nav_onename" length="11" />
+        </property>
+        <property name="nav_navName" type="java.lang.String">
+            <column name="nav_navname" length="255" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="title" length="255" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="100000" />
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="time" length="255" />
+        </property>
+        <property name="num" type="java.lang.Integer">
+            <column name="num" length="11" />
+        </property>
+         <property name="dengji" type="java.lang.Integer">
+            <column name="dengji" length="11" />
+        </property>
+    </class>
+</hibernate-mapping>

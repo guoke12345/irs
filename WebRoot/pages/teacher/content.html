@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Content.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="./styles.css">
+<style>
+	#title {width:75%;height:100%;background-color:;border:1px #A1CEFB solid;margin-left:auto;margin-right:auto}
+	#top{width:950px;;background-color:;margin-left:10px;height:100%}
+	#top ul li{list-style:none;margin-left:-40px;margin-top:px}
+	#contice {width:98%;margin-left:20px;background-color:;margin-top:20px;height:100%}
+	#contice_tit {width:98%;background-color:;height:100%}
+	#contice_tit ul  {list-style:none}
+	#contice_tit ul li {margin-top:10px}
+	#contice_nie {width:98%;margin-left:0px;background-color:;margin-top:20px}
+</style>
+	
+</head>
+
+<body>
+	
+	<div id="title">
+		<hr style="margin-top:-10px;height:10px;border:none;border-top:10px groove skyblue;border-top:10px red yellow;" />
+		<DIV class="content">
+				<DIV class="cg-content" id="contentcn">
+					<DIV class="art-content article-content">
+						<TABLE width="98%" style="width: 98%;" border="0" cellspacing="0"
+							cellpadding="0">
+							<TBODY>
+								<TR>
+									<TD width="25%" style="padding: 2.25pt; width: 25%;">
+										<DIV style="text-align: center;">
+											<IMG width="180" height="198" alt=""
+												src="${teacher.teaPhoto!}">
+										</DIV>
+									</TD>
+									<TD width="75%" style="padding: 2.25pt; width: 75%;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;"></SPAN>
+											</B>
+										</DIV>
+										<DIV>
+											<STRONG><SPAN style="font-size: 13px;"><SPAN
+													style="font-family: 微软雅黑;">${teacher.teaName!}<BR><BR>
+												</SPAN>
+											</SPAN>
+											</STRONG><SPAN style="font-size: 13px;"></SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">${teacher.teaposition!}</SPAN>
+											</SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">电话：${teacher.teaPhone!}</SPAN>
+											</SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">Email: </SPAN>
+											</SPAN><A href="mailto:${teacher.teaEmail!}"><SPAN
+												style="font-size: 13px;"><SPAN
+													style="font-family: 微软雅黑;">${teacher.teaEmail!}</SPAN>
+											</SPAN>
+											</A>
+										</DIV>
+										<DIV align="left">
+											<SPAN style="font-size: 10pt;"><BR>
+											</SPAN>
+										</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">教育背景 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaEducationalBackground!}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">工作经历 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaworkexperience!}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">研究方向 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaDirection!}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">代表性论文</SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<td style="padding: 2.25pt;" colspan="2">
+									${teacher.teaMajorThesis!}
+									</td>
+								</TR>
+							</TBODY>
+						</TABLE>
+						<DIV>&nbsp;</DIV>
+					</DIV>
+				</DIV>
+			</DIV>
+	</div>
+</body>
+</html>

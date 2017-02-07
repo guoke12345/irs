@@ -1,0 +1,78 @@
+<#assign page=JspTaglibs["/WEB-INF/dh.tld"] />
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function check() {
+			if (confirm("您确定要删除！")) {   //删除弹框
+				alter("删除");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+
+function check1() {
+			if (confirm("您确定要进行修改？")) {   //删除弹框
+				alter("修改上");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+	<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+	
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="6"  class="optiontitle">
+          	<span style="float:left"><a href="articleAction!zhidingPgFour.action">置顶文章</a> <a href="articleAction!articlePgFour.action"> 全部文章</a></span>
+          	科学研究
+          </td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td width="5%">序号</td>
+          <td width="%">一级标题</td>
+          <td width="%">二级标题</td>
+          <td width="%">文章标题</td>
+          <td width="%">发表时间</td>
+          <td width="%">操作</td>
+        </tr>
+         <#list pagination1.list as art>
+        <tr align='center' bgcolor='#FFFFFF' onmouseover='this.style.background="#F2FDFF"' onmouseout='this.style.background="#FFFFFF"'>
+		  <td width="5%">${art_index+1!}</td>
+          <td align='center' ><a href="#">${art.nav_navName!}</a></td>
+          <td align='left' ><a href="#">${art.oneName!}</a></td>
+          <td align='left' ><a href="articleAction!getContentto.action?id=${art.id!}">${art.title!}</a></td>
+          <td align='left' >${art.time!}</td>
+          <td align='center'>
+          	<#if art.dengji=1>
+         		<a href="articleAction!nozhiding.action?id=${art.id!}"> 取消置顶|</a>
+          <img src="images/edit.gif" align="absmiddle"><a href="articleAction!updateArticleto.action?id=${art.id!}" onclick="check1()">修改</a> | 
+          <img src="images/drop.gif" align="absmiddle"><a href="articleAction!deleteFourByid.action?id=${art.id!}" onclick="check()">删除</a>
+          	<#else>
+          	<a href="articleAction!zhiding.action?id=${art.id!}"> 置顶|</a>
+          <img src="images/edit.gif" align="absmiddle"><a href="articleAction!updateArticleto.action?id=${art.id!}" onclick="check1()">修改</a> | 
+          <img src="images/drop.gif" align="absmiddle"><a href="articleAction!deleteFourByid.action?id=${art.id!}" onclick="check()">删除</a>
+          	</#if>
+          	
+          </td>
+        </tr>
+		</#list>
+          <form id="queryForm" method="post">
+          	<@page.page url="articleAction!articlePgFour.action" name="pagination1"></@page.page>
+          </form>
+        </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

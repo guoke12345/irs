@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Research" table="tmresearch">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+         <property name="teaId" type="java.lang.Integer">
+            <column name="teaid" length="50" />
+        </property>
+         <property name="resNavigation" type="java.lang.String">
+            <column name="resnavigation" length="255" />
+        </property>
+         <property name="resContent" type="java.lang.String">
+            <column name="rescontent" length="100000" />
+        </property>
+    </class>
+</hibernate-mapping>

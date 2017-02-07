@@ -1,0 +1,61 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+    
+    function check() {
+			if (confirm("您确定要修改！")) {   //删除弹框
+				alter("修改");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+    
+</script>
+	<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="profileAction!updateProfile.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">添加简介</td>
+        </tr>
+        
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 简介标题：</td>
+		  <td align='left'><input name="profileName" type="text" value="${profile.profileName!}" id="title" size="50"></td>
+		</tr>
+		
+        <tr align="center" bgcolor="#FFFFFF">
+          <td width="10%" align="right">简介内容：</td>
+         
+          <td align="left"><textarea id="content_1" name="profileContent" cols="100" rows="8" style="width:550px;height:300px;">${profile.profileContent!}</textarea></td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="Submit" name="Submit" value="修改" onClick="check()">
+            <a href="profileAction!profileListto.action">
+          	<input type="button" name="Submit2" value="返回" >
+          	</a>
+          	</td>
+        </tr>
+        <input type="hidden" name="id" value="${profile.id!}">
+        
+		</FORM>
+      </table> 
+    
+    </td>
+  </tr>
+</table>
+</body>
+</html>

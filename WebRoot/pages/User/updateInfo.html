@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var userName = $("#userName").val();
+			var personName = $("#personName").val();
+			var password0 = $("#password0").val();
+			var password = $("#password").val();
+			if(userName==""){
+				alert("用户名不能为空");
+				return false;	
+			}else if(personName==""){
+				alert("真实姓名不能为空");
+				return false;
+			}else if(password0!==password){
+				alert("密码输入不一致");
+				return false;
+			}else{
+			   add.submit();
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+		<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="userAction!updateInfo.action">
+        <#list userList as user>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">修改用户信息</td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">用户名</td>
+          <td align="left"><input name="userName" type="text" id="userName" value="${user.userName!}"> <font color="red">*</font></td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">真实姓名</td>
+          <td align="left"><input name="personName" type="text" id="personName" value="${user.personName!}"> <font color="red">*</font></td>
+        </tr>
+		
+		<tr bgcolor="#FFFFFF">
+	        <td>修改密码：</td>
+	        <td ><input id="password0" name="password0" type="password" value="${user.password}"></td>
+	       
+      </tr>
+      <tr bgcolor="#FFFFFF">
+	       <td>确认密码：</td>
+	        <td ><input id="password" name="password" type="password" value="${user.password}"></td>
+      </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+          
+            <input type="button" id="but" name="but" value="修改">
+   <input id="id" type="hidden" name="id" value="${user.id!}">
+   <input type="hidden" name="states" value="${user.states!}">
+        </tr>
+        </#list>
+		</FORM>
+      </table> 
+	 </td>
+  </tr>
+</table>
+</body>
+</html>

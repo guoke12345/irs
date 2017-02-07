@@ -1,0 +1,78 @@
+<#assign page=JspTaglibs["/WEB-INF/dh.tld"] />
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function check() {
+			if (confirm("您确定要删除！")) {   //删除弹框
+				alter("删除");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+
+function check1() {
+			if (confirm("您确定要进行修改？")) {   //删除弹框
+				alter("修改");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+function check2() {
+			if (confirm("您确定要重置密码？")) {   //删除弹框
+				alter("重置");
+			} else {
+				window.event.returnValue = false;//在ie下的代码
+			}
+		}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+	<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+	
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="6"  class="optiontitle">科学研究</td>
+        </tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td width="5%">序号</td>
+          <td width="%">用户名</td>
+          <td width="%">真实姓名</td>
+          <td width="%">等级</td>
+          <td width="%">操作</td>
+        </tr>
+         <#list pagination.list as user>
+        <tr align='center' bgcolor='#FFFFFF' onmouseover='this.style.background="#F2FDFF"' onmouseout='this.style.background="#FFFFFF"'>
+		  <td width="5%">${user_index+1!}</td>
+          <td align='center' ><a href="#">${user.userName!}</a></td>
+          <td align='center' ><a href="#">${user.personName!}</a></td>
+			<#if user.states = 1>
+          <td align='center' >超级管理员</td>
+          	<#elseif user.states = 2>
+          	<td align='center' >普通管理员</td>
+          	<#else>
+          	<td align='center' >教师</td>
+          	</#if>
+          <td align='center'>
+          <img src="images/edit.gif" align="absmiddle"><a href="userAction!updatePassword.action?id=${user.id!}" onclick="check2()">重置密码</a> |
+          <img src="images/edit.gif" align="absmiddle"><a href="userAction!updateUserto.action?id=${user.id!}" onclick="check1()">修改</a> | 
+          <img src="images/drop.gif" align="absmiddle"><a href="userAction!deleteByid.action?id=${user.id!}" onclick="check()">删除</a></td>
+        </tr>
+		</#list>
+          <form id="queryForm" method="post">
+          	<@page.page url="userAction!getAllPg.action" name="pagination"></@page.page>
+          </form>
+        </tr>
+       </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

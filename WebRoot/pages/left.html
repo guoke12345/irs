@@ -1,0 +1,210 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/chili-1.7.pack.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.dimensions.js"></script>
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
+<script language="javascript">
+	jQuery().ready(function(){
+		jQuery('#navigation').accordion({
+			header: '.head',
+			navigation1: true, 
+			event: 'click',
+			fillSpace: true,
+			animated: 'bounceslide'
+		});
+	});
+</script>
+<style type="text/css">
+<!--
+body {
+	margin:0px;
+	padding:0px;
+	font-size: 12px;
+}
+#navigation {
+	margin:0px;
+	padding:0px;
+	width:147px;
+}
+#navigation a.head {
+	cursor:pointer;
+	background:url(images/main_34.gif) no-repeat scroll;
+	display:block;
+	font-weight:bold;
+	margin:0px;
+	padding:5px 0 5px;
+	text-align:center;
+	font-size:12px;
+	text-decoration:none;
+}
+#navigation ul {
+	border-width:0px;
+	margin:0px;
+	padding:0px;
+	text-indent:0px;
+}
+#navigation li {
+	list-style:none; display:inline;
+}
+#navigation li li a {
+	display:block;
+	font-size:12px;
+	text-decoration: none;
+	text-align:center;
+	padding:3px;
+}
+#navigation li li a:hover {
+	background:url(images/tab_bg.gif) repeat-x;
+		border:solid 1px #adb9c2;
+}
+-->
+</style>
+</head>
+<body>
+<div  style="height:100%;">
+  <ul id="navigation">
+  <#if user.states = 1>
+	<li> <a class="head">个人信息</a>
+      <ul>
+        <li><a href="userAction!myInfo.action" target="rightFrame">我的信息</a></li>
+      </ul>
+    </li>
+	<li> <a class="head">用户管理</a>
+      <ul>
+        <li><a href="userAction!addUserto.action" target="rightFrame">添加用户</a></li>
+        <li><a href="userAction!getAllPg.action" target="rightFrame">用户列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">轮播管理</a>
+      <ul>
+        <li><a href="carouselAction!addCarouselto.action" target="rightFrame">添加轮播</a></li>
+        <li><a href="carouselAction!carouselListto.action" target="rightFrame">轮播列表</a></li>
+      </ul>
+    </li>
+     <li> <a class="head">论文轮播管理</a>
+      <ul>
+        <li><a href="thesisAction!toAdd.action" target="rightFrame">添加轮播</a></li>
+        <li><a href="thesisAction!getAllPag.action" target="rightFrame">轮播列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">链接管理</a>
+      <ul>
+      	<li><a href="educationAction!addEducationto.action" target="rightFrame">添加链接</a></li>
+        <li><a href="educationAction!eduListto.action" target="rightFrame">链接列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">简介管理</a>
+      <ul>
+        <li><a href="profileAction!addProfileto.action" target="rightFrame">添加简介</a></li>
+        <li><a href="profileAction!profileListto.action" target="rightFrame">简介列表</a></li>
+      </ul>
+    </li>
+     <li> <a class="head">师资队伍</a>
+      <ul>
+      <li><a href="teachergroupAction!toAdd.action" target="rightFrame">添加团队</a></li>
+      	<li><a href="teachergroupAction!list.action" target="rightFrame">教师团队</a></li>
+        <li><a href="teacherAction!toadd.action" target="rightFrame">添加教授信息</a></li>
+        <li><a href="teacherAction!teacherListto.action" target="rightFrame">教师列表</a></li>
+        <li><a href="researchAction!toAdd.action" target="rightFrame">添加实验室信息</a></li>
+        <li><a href="researchAction!list.action" target="rightFrame">实验室列表</a></li>
+      </ul>
+    </li>
+     <li> <a class="head">添加一级标题</a>
+      <ul>
+        <li><a href="navAction!addNavto.action" target="rightFrame">添加一级标题</a></li>
+        <li><a href="navAction!navPgto.action" target="rightFrame">一级标题列表</a></li>
+      </ul>
+    </li>
+    
+    <li> <a class="head">科学研究</a>
+      <ul>
+      	<li><a href="articleAction!addnavThree.action" target="rightFrame">添加文章</a></li>
+        <li><a href="articleAction!articlePg.action" target="rightFrame">新闻列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">通知公告</a>
+      <ul>
+      	<li><a href="articleAction!addnavFour.action" target="rightFrame">添加通知</a></li>
+        <li><a href="articleAction!articlePgFour.action" target="rightFrame">通知列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">学习天地</a>
+      <ul>
+      	<li><a href="studyoneAction!addstudyOneNameto.action" target="rightFrame">添加一级标题</a></li>
+        <li><a href="studyoneAction!studyOnePg.action" target="rightFrame">一级标题列表</a></li>
+        <li><a href="studytwoAction!addStudytwoto.action" target="rightFrame">添加二级标题</a></li>
+        <li><a href="studytwoAction!studytwoPg.action" target="rightFrame">二级标题列表</a></li>
+        <li><a href="studyAction!addStudyto.action" target="rightFrame">添加文章</a></li>
+        <li><a href="studyAction!studyPg.action" target="rightFrame">文章列表</a></li>
+      </ul>
+    </li>
+    </#if>
+    <#if user.states = 2>
+    <li> <a class="head">个人信息</a>
+      <ul>
+        <li><a href="userAction!myInfo.action" target="rightFrame">我的信息</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">轮播管理</a>
+      <ul>
+        <li><a href="carouselAction!addCarouselto.action" target="rightFrame">添加轮播</a></li>
+        <li><a href="carouselAction!carouselListto.action" target="rightFrame">轮播列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">论文轮播管理</a>
+      <ul>
+        <li><a href="thesisAction!toAdd.action" target="rightFrame">添加轮播</a></li>
+        <li><a href="thesisAction!getAllPag.action" target="rightFrame">轮播列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">链接管理</a>
+      <ul>
+      	<li><a href="educationAction!addEducationto.action" target="rightFrame">添加链接</a></li>
+        <li><a href="educationAction!eduListto.action" target="rightFrame">链接列表</a></li>
+      </ul>
+    </li>
+     <li> <a class="head">简介管理</a>
+      <ul>
+        <li><a href="profileAction!addProfileto.action" target="rightFrame">添加简介</a></li>
+        <li><a href="profileAction!profileListto.action" target="rightFrame">简介列表</a></li>
+      </ul>
+    </li>
+    
+     <li> <a class="head">添加一级标题</a>
+      <ul>
+        <li><a href="navAction!addNavto.action" target="rightFrame">添加一级标题</a></li>
+        <li><a href="navAction!navPgto.action" target="rightFrame">一级标题列表</a></li>
+      </ul>
+    </li>
+    
+    <li> <a class="head">科学研究</a>
+      <ul>
+      	<li><a href="articleAction!addnavThree.action" target="rightFrame">添加文章</a></li>
+        <li><a href="articleAction!articlePg.action" target="rightFrame">新闻列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">通知公告</a>
+      <ul>
+      	<li><a href="articleAction!addnavFour.action" target="rightFrame">添加通知</a></li>
+        <li><a href="articleAction!articlePgFour.action" target="rightFrame">通知列表</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">学习天地</a>
+      <ul>
+      	<li><a href="studyoneAction!addstudyOneNameto.action" target="rightFrame">添加一级标题</a></li>
+        <li><a href="studyoneAction!studyOnePg.action" target="rightFrame">一级标题列表</a></li>
+        <li><a href="studytwoAction!addStudytwoto.action" target="rightFrame">添加二级标题</a></li>
+        <li><a href="studytwoAction!studytwoPg.action" target="rightFrame">二级标题列表</a></li>
+        <li><a href="studyAction!addStudyto.action" target="rightFrame">添加文章</a></li>
+        <li><a href="studyAction!studyPg.action" target="rightFrame">文章列表</a></li>
+      </ul>
+    </li>
+    </#if>
+  </ul>
+</div>
+</body>
+</html>

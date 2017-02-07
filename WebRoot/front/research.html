@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>青岛农业大学生殖科学研究院</title>
+<meta name="description" content="青岛农业大学生殖科学研究院网站由2015年7月上线，作者是青岛农业大学的两名在校生张伟超和葛杨，该网站主要用于生物学信息的交流和传播">
+<meta name="keywords" content="青岛农业大学，生殖科学研究院，动科学院，张伟超，葛杨，青农大，青岛农业大学主青农大主"> 
+<meta name="author" content="2013级信工1301张伟超，2013级计本1302葛杨，张伟超，葛杨"> 
+<link href="front/template/lib/css/cg.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="front/template/css/style.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="front/template/lib/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/template/lib/js/cg.min.js"></script>
+
+<script type='text/javascript'>
+	$(function() {
+		$(".article-content img").cgSetSize({
+			maxWidth : 640
+		});
+	})
+</script>
+
+<!--[if lt IE 7 ]>							
+<script type="text/javascript" src="template/js/cgFixPng.js"></script>							
+<script type="text/javascript">cgFixPng.fix('div, img, a, .png,span');</script>							
+<![endif]-->
+</head>
+
+<body>
+		<div class="header clearfix">
+		<div class="logo fl">
+			<a  href="frontAction!index.action"
+				title="青岛农业大学生殖科学研究院"> <img src="front/net/images/banner.png"
+				alt="青岛农业大学生殖科学研究院" /> </a>
+		</div>
+		<div class="topsearch fr">
+			<ul>
+				<li><a href="http://d.weibo.com/" title="新浪微博" target="_blank"><img
+						src="front/template/images/xinlang.gif" alt="新浪微博" /> </a>
+				</li>
+				<li><a href="http://www.hao123.com/mail" title="邮箱"
+					target="_blank"><img src="front/template/images/youxiang.gif"
+						alt="邮箱" /> </a>
+				</li>
+				<!-- <li><a href="#" title="联系方式" target="_blank"><img src="front/template/images/xianxifangshi.gif" alt="联系方式" /></a></li> -->
+				<li><a href="#" title="English" target="_blank"><img
+						src="front/template/images/english_cn.gif" alt="English" /> </a>
+				</li>
+			</ul>
+			<form id="form1" name="form1" action="#" method="get">
+				<input type="hidden" name="postflag" id="postflag" value="1" /> <input
+					type="hidden" name="area" id="area" value="2" /> <input
+					type="text" name="kw_qbzc" id="kw_qbzc" class="searchInput"
+					value="站内搜索" onFocus="if(this.value=='站内搜索'){this.value=''}"
+					onblur="if(this.value==''){this.value='站内搜索'}" /> <input
+					type="submit" value="" class="searchBtn" />
+			</form>
+		</div>
+		<div class="mainNav fr">
+			<ul class="cg-nav" id="navigation">
+				<li class="li1"><span class="nav-selected"><a href="#"
+						class="a1">研究院简介</a> </span>
+					<ul class="second-nav">
+						<#list profileList as profile>
+						<li><span><a  
+								href="frontAction!getContent.action?id=${profile.id!}"
+								title="${profile.profileName!}">${profile.profileName!}</a> </span></li>
+						</#list>
+					</ul></li>
+				<li class="li1"><span class="nav-selected"><a  
+						href="frontAction!teacher.action" class="a1">师资队伍</a> </span>
+
+					<ul class="second-nav">
+						<#list groupList as grouplist>
+						<li><span><a  
+								href="frontAction!teacher.action?id=${grouplist.id!}"
+								title="${grouplist.tgName!}">${grouplist.tgName!}</a> </span></li> </#list>
+					</ul></li>
+				<li class="li1"><span><a  
+						href="frontAction!navThreeto.action" class="a1">科学研究</a> </span>
+
+					<ul class="second-nav">
+						<#list navTop as nav>
+						<#if nav.navName == "科学研究">
+						<li><span><a  
+								href="frontAction!getnavContent.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span></li> 
+						</#if>
+						</#list>
+					</ul></li>
+				<li class="li1"><span><a  
+						href="frontAction!navFourto.action" class="a1">通知公告</a> </span>
+
+					<ul class="second-nav">
+						<#list navTop as nav>
+						<#if nav.navName == "通知公告">
+						<li><span><a  
+								href="frontAction!getnavContentFour.action?nav_oneName=${nav.id!}"
+								title="${nav.oneName!}">${nav.oneName!}</a> </span></li> 
+						</#if>
+						</#list>
+					</ul></li>
+
+				<li class="li1"><span><a  
+						href="frontAction!studyto.action" class="a1">学习天地</a> </span>
+					<ul class="second-nav">
+						<#list studyoneList as stuone>
+						<li><span><a  
+								href="frontAction!studytoto.action?id=${stuone.id}"
+								title="${stuone.studyOneName!}">${stuone.studyOneName!}</a> </span></li>
+						</#list>
+					</ul></li>
+			</ul>
+			<script type="text/javascript">
+				try {
+					$(function() {
+						$(".cg-nav").cgMenu({
+							parentClass : "parent-nav"
+						});
+					});
+				} catch (e) {
+				}
+			</script>
+			<div class="nav-t-l-ico"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="front/template/js/cg.autoNav.js"></script>
+	<script type='text/javascript'>
+		$(".mainNav ul").autoNav();
+	</script>
+	<div class="main clearfix">
+		<!-- #BeginLibraryItem "/Library/innerban.lbi" -->
+		<div class="innerban">
+
+			<p>
+				<img alt="" style="width:100%;height:180px" src="front/net/images/file.phpgmd=download&id=12749.jpg" />
+			</p>
+
+			<div class="topbg"></div>
+		</div>
+		<!-- #EndLibraryItem -->
+		<div class="left-box">
+			<div class="catalogs">
+
+
+				<h3 class="mainTitle">教师实验室</h3>
+
+
+
+
+				<ul class="cg-catalog" id="catalog">
+					<#list researchList as researchlist>
+					<li><span><a href="frontAction!research.action?resId=${researchlist.id!}" title="${researchlist.resNavigation!}">${researchlist.resNavigation!}</a>
+					</span></li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+		<#if id != 0>
+		 <DIV class="right-box">
+			<DIV class="cg-position" id="positioncn">
+				<SPAN>当前位置：</SPAN><A href="frontAction!index.action">首页</A> – <A
+					href="#">师资队伍</A>
+			</DIV>
+			<DIV class="content">
+				<DIV class="cg-content" id="contentcn">
+					<DIV class="art-content article-content">
+						<TABLE width="98%" style="width: 98%;" border="0" cellspacing="0"
+							cellpadding="0">
+							<TBODY>
+								<TR>
+									<TD width="25%" style="padding: 2.25pt; width: 25%;">
+										<DIV style="text-align: center;">
+											<IMG width="180" height="198" alt=""
+												src="${teacher.teaPhoto!}"/>
+										</DIV>
+									</TD>
+									<TD width="75%" style="padding: 2.25pt; width: 75%;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;"></SPAN>
+											</B>
+										</DIV>
+										<DIV>
+											<STRONG><SPAN style="font-size: 13px;"><SPAN
+													style="font-family: 微软雅黑;">${teacher.teaName!}<BR><BR>
+												</SPAN>
+											</SPAN>
+											</STRONG><SPAN style="font-size: 13px;"></SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">${teacher.teaposition!}</SPAN>
+											</SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">电话：${teacher.teaPhone!}</SPAN>
+											</SPAN>
+										</DIV>
+										<DIV>
+											<SPAN style="font-size: 13px;"><SPAN
+												style="font-family: 微软雅黑;">Email: </SPAN>
+											</SPAN><A href="mailto:${teacher.teaEmail!}"><SPAN
+												style="font-size: 13px;"><SPAN
+													style="font-family: 微软雅黑;">${teacher.teaEmail!}</SPAN>
+											</SPAN>
+											</A>
+										</DIV>
+										<DIV align="left">
+											<SPAN style="font-size: 10pt;"><BR>
+											</SPAN>
+										</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">教育背景 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaEducationalBackground!}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">工作经历 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaworkexperience!}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">研究方向 </SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+										${teacher.teaDirection}
+									</TD>
+								</TR>
+								<TR>
+									<TD style="background: rgb(204, 204, 204); padding: 2.25pt;">
+										<DIV align="left">
+											<B><SPAN style="font-size: 10pt;">代表性论文</SPAN>
+											</B>
+										</DIV>
+									</TD>
+									<TD style="padding: 2.25pt;">
+										<DIV align="left">&nbsp;</DIV>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="padding: 2.25pt;" colspan="2">
+									${teacher.teaMajorThesis!}
+									</TD>
+								</TR>
+							</TBODY>
+						</TABLE>
+						<DIV>&nbsp;</DIV>
+					</DIV>
+				</DIV>
+			</DIV>
+		</DIV>
+		<#else>
+		 <div class="right-box">
+			<div class="cg-position" id="positioncn">
+
+				<span>当前位置：</span><a href="frontAction!index.action">首页</a> &ndash; <a href="#">师资队伍</a>
+			</div>
+			<div class="content">
+				<div class="cg-customize-content article-content">
+					<div style="layout-grid:  15.6pt none">
+						<div style="layout-grid:  15.6pt none">
+							${research.resContent!}
+						</div>
+						<div style="margin-top: 0pt; margin-bottom: 0pt">
+							<span style="font-size: 13px"><span
+								style="font-family: 微软雅黑"><br /> </span> </span><span
+								style="font-family: 微软雅黑" />
+						</div>
+					</div>
+					<div>
+						<span style="font-size: 13px"><span
+							style="font-family: 微软雅黑">&nbsp;</span> </span>
+					</div>
+					<div>
+						<span style="font-size: 13px"><span
+							style="font-family: 微软雅黑">&nbsp;</span> </span>
+					</div>
+				</div>
+			</div>
+		</div>
+		</#if>
+	</div>
+
+	<div id="footer"></div>
+	
+	<script type="text/javascript">
+		$.get("front/footer.html",function(data){
+		$("#footer").html(data);
+		});
+	</script>		
+</body>
+</html>
+<!-- template: list.html -->

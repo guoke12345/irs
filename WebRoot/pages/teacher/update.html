@@ -1,0 +1,232 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8"
+	src="Editor/kindeditor.js"></script>
+</head>
+<body>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td bgcolor="#FFFFFF"><script type="text/javascript"
+					src="js/jquery-1.9.1.min.js"></script> <script
+					type="text/javascript">
+						//图片上传预览    IE是用了滤镜。
+						function previewImage(file) {
+							var MAXWIDTH = 260;
+							var MAXHEIGHT = 180;
+							var div = document.getElementById('preview');
+							if (file.files && file.files[0]) {
+								div.innerHTML = '<img id=imghead>';
+								var img = document.getElementById('imghead');
+								img.onload = function() {
+									var rect = clacImgZoomParam(MAXWIDTH,
+											MAXHEIGHT, img.offsetWidth,
+											img.offsetHeight);
+									img.width = rect.width;
+									img.height = rect.height;
+									//                 img.style.marginLeft = rect.left+'px';
+									img.style.marginTop = rect.top + 'px';
+								}
+								var reader = new FileReader();
+								reader.onload = function(evt) {
+									img.src = evt.target.result;
+								}
+								reader.readAsDataURL(file.files[0]);
+							} else //兼容IE
+							{
+								var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+								file.select();
+								var src = document.selection.createRange().text;
+								div.innerHTML = '<img id=imghead>';
+								var img = document.getElementById('imghead');
+								img.filters
+										.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+								var rect = clacImgZoomParam(MAXWIDTH,
+										MAXHEIGHT, img.offsetWidth,
+										img.offsetHeight);
+								status = ('rect:' + rect.top + ',' + rect.left
+										+ ',' + rect.width + ',' + rect.height);
+								div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+							}
+						}
+						function clacImgZoomParam(maxWidth, maxHeight, width,
+								height) {
+							var param = {
+								top : 0,
+								left : 0,
+								width : width,
+								height : height
+							};
+							if (width > maxWidth || height > maxHeight) {
+								rateWidth = width / maxWidth;
+								rateHeight = height / maxHeight;
+
+								if (rateWidth > rateHeight) {
+									param.width = maxWidth;
+									param.height = Math.round(height
+											/ rateWidth);
+								} else {
+									param.width = Math
+											.round(width / rateHeight);
+									param.height = maxHeight;
+								}
+							}
+
+							param.left = Math
+									.round((maxWidth - param.width) / 2);
+							param.top = Math
+									.round((maxHeight - param.height) / 2);
+							return param;
+						}
+					</script> <script type="text/javascript">
+						KE.show({
+							id : 'content_1'
+						});
+						KE.show({
+							id : 'content_2'
+						});
+						KE.show({
+							id : 'content_3'
+						});
+						KE.show({
+							id : 'content_4'
+						});
+						$(document).ready(
+								function() {
+									$("#but").click(
+											function() {
+
+												var teaName = $("#teaName").val();
+												var teaPhone = $("#teaPhone").val();
+												var teaEmail = $("#teaEmail").val();
+												var teaEmail = $("#teaEmail").val();
+												var teaEmail = $("#teaEmail").val();
+												var password = $("#password").val();
+												var password0 = $("#password0").val();
+												var teaDirection = $("#teaDirection").val();
+												var content_4 = $("#content_4").val();
+												if (teaName == ""
+														|| teaPhone == ""
+														|| teaEmail == ""
+														|| teaDirection == ""
+														) {
+													alert("基本信息不能为空");
+													return false;
+												}else if( password0 == ""
+														|| password == ""){
+														alert("密码不能为空！");
+												}else if(password != password0){
+													alert("两次密码不一致");
+												}
+												 else {
+													form.submit();
+												}
+											})
+								})
+					</script> <br>
+				<table width="96%" border="0" align="center" cellpadding="4"
+					cellspacing="1" bgcolor="#aec3de">
+					<Form name="form" method="post"
+						action="teacherAction!update.action" enctype="multipart/form-data">
+						<input type="hidden" name="id" value="${teacher.id!}">
+						<input type="hidden" name="dengji" value="${teacher.dengji!}">
+						<tr align="center" bgcolor="#F2FDFF">
+							<td colspan="8" class="optiontitle">修改教师信息</td>
+						</tr>
+						<tr align='center' bgcolor='#F2FDFF'>
+							<td align='right' rowspan="4">照片：</td>
+							<TD rowspan="4" width="23%" style="padding: 2.25pt; width: 23%;">
+								<DIV id="preview" style="text-align: center;">
+									<!-- '<%=request.getContextPath()%>/images/defaul.jpg' -->
+									<IMG id="imghead" src="${teacher.teaPhoto!}" width="130"
+										height="143" alt="" style="border:1px red solid;">
+								</DIV> <br /> <input type="file" name="photoImg"
+								onchange="previewImage(this)" />
+							</TD>
+							<td align='right'>教师姓名：</td>
+							<td align='left'><input name="teaName" type="text"
+								id="teaName" value="${teacher.teaName!}" size="10"></td>
+							<td align='right'>电话：</td>
+							<td align='left'><input name="teaPhone" type="tel"
+								id="teaPhone" size="20" value="${teacher.teaPhone!}"></td>
+							<td align='right'>传真：</td>
+							<td align='left'><input name="teaFax" type="text"
+								id="teaFax" size="20" value="${teacher.teaFax!}"></td>
+						</tr>
+						<tr align='center' bgcolor='#F2FDFF'>
+							<td align='right'>团队：</td>
+							<td align='left'><select name="teaTeam_id"> <#list
+									teachergroup as list>
+									<option value="${list.id!}">&nbsp&nbsp ${list.tgName!}
+										&nbsp&nbsp</option> </#list>
+							</select>
+							</td>
+							<td align='right'>邮箱：</td>
+							<td align='left'><input name="teaEmail" type="email"
+								id="teaEmail" size="20" value="${teacher.teaEmail!}"></td>
+							<td align='right'>研究方向：</td>
+							<td align='left'><input name="teaDirection" type="text"
+								id="teaDirection" size="20" value="${teacher.teaDirection!}">
+							</td>
+						</tr>
+						<tr align='center' bgcolor='#F2FDFF'>
+							<td align='right'>职位：</td>
+							<td align='left' colspan="7"><input name="teaposition"
+								type="text" id="teaposition" size="20"
+								value="${teacher.teaposition!}"></td>
+						</tr>
+						<tr align='center' bgcolor='#F2FDFF'>
+							<td align='right'>密码：</td>
+							<td align='left'><input name="password0"
+								type="password" id="password0" size="20" >
+							</td>
+							<td align='right'>确认密码：</td>
+							<td align='left' colspan="6"><input name="password"
+								type="password" id="password" size="20" >
+							</td>
+						</tr>
+						<tr align="center" bgcolor="#FFFFFF">
+							<td width="10%" align="right">教育背景：</td>
+							<td align="left" colspan="7"><textarea id="content_1"
+									name="teaEducationalBackground" cols="100" rows="8"
+									style="width:550px;height:300px;">${teacher.teaEducationalBackground!}</textarea>
+							</td>
+						</tr>
+
+						<tr align="center" bgcolor="#FFFFFF">
+							<td width="10%" align="right">工作经历：</td>
+							<td align="left" colspan="7"><textarea id="content_2"
+									name="teaworkexperience" cols="100" rows="8"
+									style="width:550px;height:300px;">${teacher.teaworkexperience!}</textarea>
+							</td>
+						</tr>
+						<tr align="center" bgcolor="#FFFFFF">
+							<td width="10%" align="right">奖项和活动：</td>
+							<td align="left" colspan="7"><textarea id="content_3"
+									name="teaAwardOrActive" cols="100" rows="8"
+									style="width:550px;height:300px;">${teacher.teaAwardOrActive!}</textarea>
+							</td>
+						</tr>
+						<tr align="center" bgcolor="#FFFFFF">
+							<td width="10%" align="right">代表性论文：</td>
+							<td align="left" colspan="7">
+							<textarea id="content_4"
+									name="teaMajorThesis" cols="100" rows="8"
+									style="width:550px;height:300px;">${teacher.teaMajorThesis!}</textarea>
+							</td>
+						</tr>
+
+						<tr align="center" bgcolor="#ebf0f7">
+							<td colspan="6"><input type="button" id="but" name="Submit"
+								value="提交" onClick="check()"> <input type="button"
+								name="Submit2" value="返回" onClick="history.back(-1)"></td>
+						</tr>
+					</FORM>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

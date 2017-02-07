@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Study" table="study">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+         <property name="studyOneName_id" type="java.lang.Integer">
+            <column name="studyonename_id" length="11" />
+        </property>
+        <property name="studyTwoName_id" type="java.lang.Integer">
+            <column name="studytwoname_id" length="11" />
+        </property>
+        <property name="studyTitle" type="java.lang.String">
+            <column name="studytitle" length="255" />
+        </property>
+        <property name="studyContent" type="java.lang.String">
+            <column name="studycontent" length="100000" />
+        </property>
+        <property name="studyTime" type="java.lang.String">
+            <column name="studytime" length="255" />
+        </property>
+        <property name="fileName" type="java.lang.String">
+            <column name="filename" length="255" />
+        </property>
+        <property name="filePath" type="java.lang.String">
+            <column name="filepath" length="255" />
+        </property>
+    </class>
+</hibernate-mapping>

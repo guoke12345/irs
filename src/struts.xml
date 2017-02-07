@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="thesis" extends="struts-default" namespace="/">
+		<action name="thesisAction" class="action.ThesisAction">
+			<result name="list" type="freemarker">pages/thesis/list.html</result>
+			<result name="add">pages/thesis/add.html</result>
+			<result name="alter" type="freemarker">pages/thesis/alter.html</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="front" extends="struts-default" namespace="/">
+		<action name="frontAction" class="action.FrontAction">
+			<result name="footer" type="freemarker">front/footer.html</result> <!-- 底部页面 -->
+			<result name="header" type="freemarker">front/header.html</result> <!-- 头部页面 -->
+			<result name="index" type="freemarker">front/index.html</result><!--跳转到主页面 -->
+			
+			<result name="teacher" type="freemarker">front/teacher.html</result><!--跳转到师资页面 -->
+			<result name="research" type="freemarker">front/research.html</result><!-- 实验室信息 -->
+			<result name="teaContent" type="freemarker">front/teaContent.html</result><!-- 
+				实验室信息 -->
+			<result name="profileto" type="freemarker">front/profile.html</result><!--跳转到研究院简介的方法 -->
+			<result name="navThreeto" type="freemarker">front/navThree.html</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="navFourto" type="freemarker">front/navFour.html</result><!--跳转到导航栏第四栏界面的方法 -->
+			<result name="navFiveto" type="freemarker">front/navFive.html</result><!--跳转到导航栏第四栏界面的方法 -->
+			<result name="navThreeContent" type="freemarker">front/navThreeContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="navFourContent" type="freemarker">front/navFourContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="navFiveContent" type="freemarker">front/navFiveContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="mainto" type="freemarker">front/index.html</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="indexContent" type="freemarker">front/indexContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="lunwenContent" type="freemarker">front/lunwenContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="carouselContent" type="freemarker">front/carouselContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="studyto" type="freemarker">front/study.html</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="studytoto" type="freemarker">front/studyto.html</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="studytototo" type="freemarker">front/studytototo.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="studyContent" type="freemarker">front/studyContent.html
+			</result><!--跳转到导航栏第三栏界面的方法 -->
+			<result name="thesisContent" type="freemarker">front/thesisContent.html
+			</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="userAction" class="action.UserAction">
+			<result name="tiao" type="freemarker">pages/Login.html</result><!--跳转到登陆界面的方法 -->
+			<result name="tuichu" type="freemarker">pages/Login.html</result><!--跳转到登陆界面的方法 -->
+			<result name="myInfo" type="freemarker">pages/User/userInfo.html</result><!--跳转到个人信息的方法 -->
+			<result name="updateInfo" type="freemarker">pages/User/updateInfo.html
+			</result><!--跳转到个人信息的方法 -->
+			<result name="getAllPg" type="freemarker">pages/addUser/userList.html
+			</result><!--跳转到登陆界面的方法 -->
+			<result name="addUserto" type="freemarker">pages/addUser/addUser.html
+			</result><!--跳转到登陆界面的方法 -->
+			<result name="updateUserto" type="freemarker">pages/addUser/updateUser.html
+			</result><!--跳转到登陆界面的方法 -->
+			<result name="main" type="freemarker">pages/main.html</result><!--跳转到main界面的方法 -->
+			<result name="top" type="freemarker">pages/top.html</result><!--跳转到main界面的方法 -->
+			<result name="center" type="freemarker">pages/center.html</result><!--跳转到main界面的方法 -->
+			<result name="dibu" type="freemarker">pages/down.html</result><!--跳转到main界面的方法 -->
+			<result name="left" type="freemarker">pages/left.html</result><!--跳转到main界面的方法 -->
+			<result name="right" type="freemarker">pages/right.html</result><!--跳转到main界面的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+
+	<package name="teacher" extends="struts-default" namespace="/">
+		<action name="teacherAction" class="action.TeacherAction">
+			<result name="list" type="freemarker">pages/teacher/list.html</result> <!--teacherlist列表 -->
+			<result name="biaojiList" type="freemarker">pages/teacher/biaojilist.html
+			</result> <!--teacherlist列表 -->
+			<result name="add" type="freemarker">pages/teacher/add.html</result>
+			<result name="update" type="freemarker">pages/teacher/update.html</result>
+			<result name="content" type="freemarker">pages/teacher/content.html
+			</result>
+			<result name="teacherto" type="freemarker">pages/teacher/teacherMain.html
+			</result>
+			<result name="center" type="freemarker">pages/teacher/teacherCenter.html
+			</result>
+			<result name="left" type="freemarker">pages/teacher/teacherLeft.html
+			</result>
+			<result name="myinfo" type="freemarker">pages/teacher/myInfo.html</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+
+	<package name="teachergroup" extends="struts-default"
+		namespace="/">
+		<action name="teachergroupAction" class="action.TeachergroupAction">
+			<result name="list" type="freemarker">pages/teacherTeam/list.html</result>
+			<result name="add" type="freemarker">pages/teacherTeam/add.html</result>
+			<result name="update" type="freemarker">pages/teacherTeam/update.html
+			</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+
+	<package name="carousel" extends="struts-default" namespace="/">
+		<action name="carouselAction" class="action.CarouselAction">
+			<result name="carouselListto" type="freemarker">pages/carousel/carouselList.html
+			</result>
+			<result name="addCarouselto" type="freemarker">pages/carousel/addCarousel.html
+			</result>
+			<result name="updateCarouselto" type="freemarker">pages/carousel/updateCarousel.html
+			</result>
+			<result name="content" type="freemarker">pages/research/content.html
+			</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+
+	<package name="research" extends="struts-default" namespace="/">
+		<action name="researchAction" class="action.ResearchAction">
+			<result name="list" type="freemarker">pages/research/list.html</result>
+			<result name="add" type="freemarker">pages/research/add.html</result>
+			<result name="update" type="freemarker">pages/research/update.html</result>
+			<result name="content" type="freemarker">pages/research/content.html
+			</result>
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+
+	<package name="profile" extends="struts-default" namespace="/">
+		<action name="profileAction" class="action.ProfileAction">
+			<result name="profileListto" type="freemarker">pages/profile/profileList.html
+			</result><!--跳转到研究院简介列表的方法 -->
+			<result name="addProfileto" type="freemarker">pages/profile/addProfile.html
+			</result><!--跳转到添加简介界面的方法 -->
+			<result name="updateProfileto" type="freemarker">pages/profile/updateProfile.html
+			</result><!--跳转到修改简介界面的方法 -->
+			<result name="getContent" type="freemarker">pages/profile/profileContent.html
+			</result><!--跳转到简介内容界面的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="education" extends="struts-default" namespace="/">
+		<action name="educationAction" class="action.EducationAction">
+			<result name="eduListto" type="freemarker">pages/education/educationList.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="addEducationto" type="freemarker">pages/education/addEducation.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="updateEducationto" type="freemarker">pages/education/updateEducation.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="getContent" type="freemarker">pages/education/educationContent.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="nav" extends="struts-default" namespace="/">
+		<action name="navAction" class="action.NavAction">
+			<result name="addNavto" type="freemarker">pages/nav/addNav.html</result><!--跳转到研究生教育列表的方法 -->
+			<result name="navPgto" type="freemarker">pages/nav/navList.html</result><!--跳转到研究生教育列表的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="article" extends="struts-default" namespace="/">
+		<action name="articleAction" class="action.ArticleAction">
+			<result name="addnavThree" type="freemarker">pages/article/addArticle.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="addnavFour" type="freemarker">pages/article/addArticleFour.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="addnavFive" type="freemarker">pages/article/addArticleFive.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="articlePg" type="freemarker">pages/article/articleList.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="articlePgFour" type="freemarker">pages/article/articleListFour.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="articlePgFive" type="freemarker">pages/article/articleListFive.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="updateArticleto" type="freemarker">pages/article/updateArticle.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="getContentto" type="freemarker">pages/article/articleContent.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="studyone" extends="struts-default" namespace="/">
+		<action name="studyoneAction" class="action.StudyoneAction">
+			<result name="addstudyOneNameto" type="freemarker">pages/study/addStudyone.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="studyOnePg" type="freemarker">pages/study/studyoneList.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="error">error/error.html</result>
+		</action>
+	</package>
+	<package name="studytwo" extends="struts-default" namespace="/">
+		<action name="studytwoAction" class="action.StudytwoAction">
+			<result name="error">error/error.html</result>
+			<result name="addStudytwoto" type="freemarker">pages/study/addStudytwo.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="studytwoPg" type="freemarker">pages/study/studytwoList.html
+			</result><!--跳转到研究生教育列表的方法 -->
+		</action>
+	</package>
+	<package name="study" extends="struts-default" namespace="/">
+		<action name="studyAction" class="action.StudyAction">
+			<result name="error">error/error.html</result>
+			<result name="addStudyto" type="freemarker">pages/study/addStudy.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="addStudytoto" type="freemarker">pages/study/addStudyto.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="studyPg" type="freemarker">pages/study/studyList.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="updateStudyto" type="freemarker">pages/study/updateStudy.html
+			</result><!--跳转到研究生教育列表的方法 -->
+			<result name="getContentto" type="freemarker">pages/study/studyContent.html
+			</result><!--跳转到研究生教育列表的方法 -->
+		</action>
+	</package>
+</struts> 

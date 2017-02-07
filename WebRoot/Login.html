@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>青岛农业大学生殖科学研究院后台管理系统</title>
+	<meta name="description" content="青岛农业大学生殖科学研究院网站由2015年7月上线，作者是青岛农业大学的两名在校生张伟超和葛杨，该网站主要用于生物学信息的交流和传播">
+	<meta name="keywords" content="青岛农业大学，生殖科学研究院，动科学院，张伟超，葛杨，青农大，青岛农业大学主青农大主"> 
+	<meta name="author" content="2013级信工1301张伟超，2013级计本1302葛杨，张伟超，葛杨"> 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+	<script language="javascript" type="text/javascript" src="js/yanzhengma.js" >
+	</script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#button").click(function(){
+			checkCode = $("#code").val();
+			VerifyCode = $("#checkCode").val();
+			userName = $("#uid").val();
+			password = $("#pwd").val();
+			dengji = $("#dengji").val();
+			if(userName==""){
+			alert("用户名不能为空！");
+			}else	if(password==""){
+			alert("密码不能为空！");
+			} else if(checkCode!=VerifyCode){
+			alert("验证码不正确！");
+			return false;
+			} else if(dengji==""){
+			alert("等级选择不能为空！");
+			}else if(dengji =="0"){
+				$.ajax({
+						url:"userAction!Login.action",
+						data:{"userName":userName,"password":password},
+						type:"post",
+						datatype:"json",
+						success:function(result){
+							/* alert(result); */
+						if(result=="0")	{
+							alert("该用户不存在！！");
+							return false;
+						}
+						if(result=="2"){
+							alert("密码不正确！！");
+							return false;
+						}
+						if(result=="1"){
+							
+							form1.submit();
+						}
+					   }
+					})
+					}
+					else if(dengji=="1"){
+						$.ajax({
+						url:"teacherAction!Login.action",
+						data:{"teaName":userName,"password":password},
+						type:"post",
+						datatype:"json",
+						success:function(result){
+							/* alert(result); */
+						if(result=="0")	{
+							alert("该用户不存在！！");
+							return false;
+						}
+						if(result=="2"){
+							alert("密码不正确！！");
+							return false;
+						}
+						if(result=="1"){
+							
+							teacher.submit();
+						}
+					   }
+					})
+					}
+			
+		})
+	})
+</script>
+</head>
+<body style="background-color:#ACD6FF" onLoad="createCode();">
+    
+     <FORM action="userAction!zhujiemian.action" method="post" name="form1">
+    <div class="row-fluid">
+        <h1>青岛农业大学生殖科学研究院</h1>
+        <p>
+            <label>帐&nbsp;&nbsp;&nbsp;号：<input type="text" id="uid" name="userName"/></label>
+        </p>
+        <p>
+            <label>密&nbsp;&nbsp;&nbsp;码：<input type="password" id="pwd" name="password"/></label>
+        </p>
+        <p class="pcode">
+            <label>验证码：
+            <input type="text" id="code" maxlength="5" class="code" value="" />
+            <input type="button" id="checkCode" class="code" style="WIDtH: 60px"  onClick="createCode()" />
+			<a href="#" onClick="createCode()">看不清楚</a></label>
+        </p>
+        <p class="tip">&nbsp;<select name="dengji" id="dengji">
+				       <option value="0">管理员</option>
+				       <option value="1">教师</option>
+				                    <!-- <option value="2">学员</option> -->
+			   </select></p>
+        <p class="pcode">
+          
+            	
+			
+        </p>
+        <hr />
+        <input type="button" id="button" value=" 登 录 " class="btn btn-primary btn-large login" />
+        &nbsp;&nbsp;&nbsp;<input type="button" value=" 取 消 " class="btn btn-large" />
+    </div>
+    </FORM>
+    <FORM action="teacherAction!teacherto.action" method="post" name="teacher">
+    </FORM>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>青岛农业大学生殖科学研究院</title>
+<meta name="description" content="青岛农业大学生殖科学研究院网站由2015年7月上线，作者是青岛农业大学的两名在校生张伟超和葛杨，该网站主要用于生物学信息的交流和传播">
+<meta name="keywords" content="青岛农业大学，生殖科学研究院，动科学院，张伟超，葛杨，青农大，青岛农业大学主青农大主"> 
+<meta name="author" content="2013级信工1301张伟超，2013级计本1302葛杨，张伟超，葛杨"> 
+<link href="front/template/lib/css/cg.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="front/template/css/style.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="front/template/lib/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/template/lib/js/cg.min.js"></script>
+
+<script type='text/javascript'>
+	$(function() {
+		$(".article-content img").cgSetSize({
+			maxWidth : 640
+		});
+	})
+</script>
+
+<!--[if lt IE 7 ]>							
+<script type="text/javascript" src="template/js/cgFixPng.js"></script>							
+<script type="text/javascript">cgFixPng.fix('div, img, a, .png,span');</script>							
+<![endif]-->
+</head>
+
+<body>
+	
+	<div class="main clearfix">
+		<!-- #BeginLibraryItem "/Library/innerban.lbi" -->
+		<div class="innerban">
+
+			<p>
+				<img alt="" style="width:100%;height:180px" src="front/net/images/file.phpgmd=download&id=12749.jpg" />
+			</p>
+
+			<div class="topbg"></div>
+		</div>
+		<!-- #EndLibraryItem -->
+		<div class="left-box">
+			<div class="catalogs">
+
+
+				<h3 class="mainTitle">师资力量</h3>
+
+
+
+
+				<ul class="cg-catalog" id="catalog">
+					<#list groupList as teaGroup>
+					<li><span><a href="frontAction!teacher.action?id=${teaGroup.id!}" title="研究院概况">${teaGroup.tgName!}</a>
+					</span></li>
+					</#list>
+				</ul>
+
+			</div>
+		</div>
+		<div class="right-box">
+			<div class="cg-position" id="positioncn">
+
+				<span>当前位置：</span><a href="frontAction!main.action">首页</a> &ndash; <a href="#"></a>
+				&ndash; <a href="#">${profile.profileName}</a>
+			</div>
+			<div class="content">
+				<div class="cg-customize-content article-content">
+					<div style="layout-grid:  15.6pt none">
+						<div style="layout-grid:  15.6pt none">
+							${profile.profileContent!}
+						</div>
+						<div style="margin-top: 0pt; margin-bottom: 0pt">
+							<span style="font-size: 13px"><span
+								style="font-family: 微软雅黑"><br /> </span> </span><span
+								style="font-family: 微软雅黑" />
+						</div>
+					</div>
+					<div>
+						<span style="font-size: 13px"><span
+							style="font-family: 微软雅黑">&nbsp;</span> </span>
+					</div>
+					<div>
+						<span style="font-size: 13px"><span
+							style="font-family: 微软雅黑">&nbsp;</span> </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>
+<!-- template: list.html -->

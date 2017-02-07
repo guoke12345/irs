@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var userName = $("#userName").val();
+			var personName = $("#personName").val();
+			if(password0==""){
+				alert("密码不能为空！");
+				return false;
+			}
+			else if(password0!=password){
+				alert("两次输入的密码不一致！");
+				return false;
+			}
+			 else if(userName==""){
+				alert("用户名不能为空");
+				return false;	
+			}else if(personName==""){
+				alert("真实姓名不能为空");
+				return false;
+			}else{
+			   add.submit();
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+		<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="userAction!updateInfoto.action">
+        <#list userList as user>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">用户信息</td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">用户名</td>
+          <td align="left">${user.userName!} <font color="red">*</font></td>
+        </tr>
+        <tr align="center" bgcolor="#F2FDFF">
+          <td width="10%" align="right">真实姓名</td>
+          <td align="left">${user.personName!} <font color="red">*</font></td>
+        </tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 等级：</td>
+		  <td align='left'>
+			 <#if user.states=1>  
+  				超级管理员 
+  				<#else>
+  				普通管理员
+  				</#if>
+		  </td>
+	  <input type="hidden" value="${user.states!}">
+		</tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+          
+            <input type="submit" id="but" name="but" value="修改">
+   
+        </tr>
+        </#list>
+		</FORM>
+      </table> 
+	 </td>
+  </tr>
+</table>
+</body>
+</html>

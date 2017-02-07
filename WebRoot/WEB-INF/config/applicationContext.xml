@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 数据库连接池 C3P0的配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" dependency-check="none">
+		<!-- 驱动配置 -->
+		<property name="driverClass">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+
+		<!-- 连接数据库所用的URL -->
+
+		<!-- 警告 ，此处数据库密码路径若需要改动，请同步改动/WEB-INF/tongji/sql.jsp中的数据库路径 由于统计没有使用hql,用的是sql直接统计 -->
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/irsdb?characterEncoding=utf-8" />
+		<!-- 连接数据库的用户名 -->
+		<property name="user">
+			<value>root</value>
+		</property>
+		<!-- 连接数据库的密码 -->
+		<property name="password">
+			<value>000000</value>
+		</property>
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="3" />
+		<!-- 连接池中初始大小 Default：3 -->
+		<property name="initialPoolSize" value="3" />
+		<!-- 连接池中最小值 Default：3 -->
+		<property name="minPoolSize" value="3" />
+		<!-- 连接池中最大连接数 50 由于统计ofc查询较多 改 -->
+		<property name="maxPoolSize" value="100" />
+		<!--连接的最大空闲时间，如果超过这个时间，某个数据库连接还没有被使用，则会断开掉这个连接。Default: 0 -->
+		<property name="maxIdleTime" value="30" />
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+		<!--配置连接的生存时间，超过这个时间的连接将由连接池自动断开丢弃掉。当然正在使用的连接不会马上断开，而是等待。Default: 0 -->
+		<property name="maxConnectionAge" value="60" />
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="maxIdleTimeExcessConnections" value="30" />
+		<!-- 当连接池连接耗尽时，客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException，如设为0则无限期等待。单位毫秒。默认: 
+			0 -->
+		<!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements 属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 
+		如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0 -->
+		<property name="maxStatements" value="100" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts">
+			<value>30</value>
+		</property>
+		<!-- c3p0是异步的 ，JDBC操作通常是被不持有锁的 helper线程执行的，允许多线程操作能够改进性能 -->
+		<property name="numHelperThreads">   
+			<value>3</value>
+		</property>
+		<!-- <property name="checkoutTimeout" value="5000" />
+		关闭连接时，是否提交未提交的事务，默认为false，即关闭连接，回滚未提交的事务
+		<property name="autoCommitOnClose">
+			<value>false</value>
+		</property>
+		获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false
+		<property name="breakAfterAcquireFailure">
+			<value>false</value>
+		</property>
+		
+		<property name="maxStatementsPerConnection" value="0"></property>
+		
+		<property name="acquireRetryDelay">
+			<value>1000</value>
+		</property> -->
+	</bean>
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- hibernate方言 -->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.release_mode">after_statement</prop>
+			</props>
+		</property>
+		<!-- 加载hibernater映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>pojo/User.hbm.xml</value>
+				<value>pojo/Teacher.hbm.xml</value>
+				<value>pojo/Research.hbm.xml</value>
+				<value>pojo/Teachergroup.hbm.xml</value>
+				<value>pojo/Profile.hbm.xml</value>
+				<value>pojo/Education.hbm.xml</value>
+				<value>pojo/Nav.hbm.xml</value>
+				<value>pojo/Article.hbm.xml</value>
+				<value>pojo/Carousel.hbm.xml</value>
+				<value>pojo/Studyone.hbm.xml</value>
+				<value>pojo/Studytwo.hbm.xml</value>
+				<value>pojo/Study.hbm.xml</value>
+				<value>pojo/Thesis.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 声明式事务配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 配置事务增强 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 事务属性定义 -->
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 应用事务增强 -->
+	<aop:config>
+		<aop:pointcut id="allMethods" expression="execution(* cn.edu.*.*.impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods" />
+	</aop:config>
+
+
+	<!-- 这里是依赖，建立Dao Service Action之间的依赖关系 否则 action 无法调用底层方法 这里我把依赖 单独放到一个文件里面 
+		为了方便管理 -->
+
+	<import resource="systemContext-User.xml" />
+	<import resource="systemContext-Teacher.xml" />
+	<import resource="systemContext-Research.xml" />
+	<import resource="systemContext-Teachergroup.xml" />
+	<import resource="systemContext-Profile.xml" />
+	<import resource="systemContext-Education.xml" />
+	<import resource="systemContext-Nav.xml" />
+	<import resource="systemContext-Article.xml" />
+	<import resource="systemContext-Carousel.xml" />
+	<import resource="systemContext-Studyone.xml" />
+	<import resource="systemContext-Studytwo.xml" />
+	<import resource="systemContext-Study.xml" />
+	<import resource="systemContext-Thesis.xml" />
+	<bean id="freemarkerConfig"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="/WEB-INF" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="defaultEncoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="form" method="post" action="studyAction!addStudytoto.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">选择添加标题</td>
+        </tr>
+		<tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 标题：</td>
+		  <td align='left'>
+			 <select name="studyOneName_id" id="studyOneName_id" >  
+			  <#list studyoneList as stu>
+  				<option value ="${stu.id!}">${stu.studyOneName!}</option>  
+				</#list>
+		    </select>
+		  </td>
+		</tr>
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="submit" id="" name="Submit" value="提交" onClick="check()">
+          	<input type="button" name="Submit2" value="返回" onClick="history.back(-1)"></td>
+        </tr>
+		</FORM>
+      </table> 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

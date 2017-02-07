@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.Education" table="education">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+         <property name="eduOneName" type="java.lang.String">
+            <column name="eduonename" length="255" />
+        </property>
+        <property name="eduTwoName" type="java.lang.String">
+            <column name="edutwoname" length="255" />
+        </property>
+        <property name="eduTitle" type="java.lang.String">
+            <column name="edutitle" length="255" />
+        </property>
+        <property name="eduContent" type="java.lang.String">
+            <column name="educontent" length="100000" />
+        </property>
+        <property name="eduTime" type="java.lang.String">
+            <column name="edutime" length="255" />
+        </property>
+        <property name="eduNum" type="java.lang.Integer">
+            <column name="edunum" length="11" />
+        </property>
+    </class>
+</hibernate-mapping>

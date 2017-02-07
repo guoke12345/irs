@@ -1,0 +1,4 @@
+#Mon Sep 14 11:07:36 CST 2015
+eclipse.preferences.version=1
+validator.Checked=WebRoot/front,WebRoot/pages/research,WebRoot/js,WebRoot/pages/teacher
+validator.Unchecked=

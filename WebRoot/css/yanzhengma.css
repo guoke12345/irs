@@ -1,0 +1,13 @@
+.code {
+	background-image: url(111.jpg);
+	font-family: Arial, ËÎÌו;
+	font-style: italic;
+	color: green;
+	border: 0;
+	padding: 2px 3px;
+	letter-spacing: 3px;
+	font-weight: bolder;
+}
+
+.unchanged {
+	border: 0;}

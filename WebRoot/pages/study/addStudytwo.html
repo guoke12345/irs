@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf-8" src="Editor/kindeditor.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content_1'
+    });
+	$(document).ready(function(){
+		$("#but").click(function(){  
+		      
+			var studyOneName_id = $("#studyOneName_id").val();
+			var studyTwoName = $("#studyTwoName").val();
+			if(studyOneName_id==""){
+				alert("一级标题不能为空");
+				return false;	
+			}else if(studyTwoName==""){
+				alert("二级标题不能为空");
+				return false;
+			}else{
+			   add.submit();
+			}
+		})
+	})
+</script>
+
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td bgcolor="#FFFFFF">
+		<br>
+      <table width="96%"  border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#aec3de">
+        <form name="add" method="post" action="studytwoAction!addStudytwo.action">
+        <tr align="center" bgcolor="#F2FDFF">
+          <td colspan="2"  class="optiontitle">添加学术天地二级标题</td>
+        </tr>
+        <tr align='center' bgcolor='#F2FDFF'>
+		  <td align='right'> 一级标题：</td>
+		  <td align='left'>
+			 <select name="studyOneName_id" id="studyOneName_id" >  
+  				<#list studyoneList as studyone>
+  				<option value ="${studyone.id!}">${studyone.studyOneName!}</option>
+  				</#list>  
+		    </select>
+		  </td>
+	  
+		</tr>
+        
+		<tr align='center' bgcolor='#FFFFFF'>
+		  <td align='right' bgcolor="#FFFFFF"> 二级标题：</td>
+		  <td align='left'><input name="studyTwoName" type="text" id="studyTwoName"> <font color="red">*</font></td>
+		</tr>
+		
+        <tr align="center" bgcolor="#ebf0f7">
+          <td  colspan="2" >
+            <input type="button" id="but" name="Submit" value="添加">
+          	<input type="button" name="Submit2" value="重置" onClick="history.back(-1)"></td>
+        </tr>
+		</FORM>
+      </table> 
+	 </td>
+  </tr>
+</table>
+</body>
+</html>
